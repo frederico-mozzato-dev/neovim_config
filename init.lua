@@ -147,10 +147,11 @@ require('lazy').setup({
   'tpope/vim-fugitive',
   'tpope/vim-endwise',
 
-  -- NOTE: Plugins can also be added by using a table,
-  -- with the first argument being the link and the following
-  -- keys can be used to configure plugin behavior/loading/etc.
-  --
+  -- installed colorschemes
+  'catppuccin/nvim',
+  'rebelot/kanagawa.nvim',
+  'projekt0n/github-nvim-theme',
+
   -- Use `opts = {}` to force a plugin to be loaded.
   --
   --  This is equivalent to:
@@ -515,7 +516,6 @@ require('lazy').setup({
       local servers = {
         ruby_lsp = {},
         rubocop = {},
-        sorbet = {},
         emmet_language_server = {},
         -- clangd = {},
         -- gopls = {},
@@ -634,12 +634,13 @@ require('lazy').setup({
           -- `friendly-snippets` contains a variety of premade snippets.
           --    See the README about individual language/framework/plugin snippets:
           --    https://github.com/rafamadriz/friendly-snippets
-          -- {
-          --   'rafamadriz/friendly-snippets',
-          --   config = function()
-          --     require('luasnip.loaders.from_vscode').lazy_load()
-          --   end,
-          -- },
+          {
+            'rafamadriz/friendly-snippets',
+            config = function()
+              require('luasnip.loaders.from_vscode').lazy_load()
+              require('luasnip').filetype_extend('ruby', { 'rails' })
+            end,
+          },
         },
       },
       'saadparwaiz1/cmp_luasnip',
@@ -725,19 +726,12 @@ require('lazy').setup({
     end,
   },
 
-  { -- You can easily change to a different colorscheme.
-    -- Change the name of the colorscheme plugin below, and then
-    -- change the command in the config to whatever the name of that colorscheme is.
-    --
+  { -- Colorscheme config
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     'catppuccin/nvim',
-    -- 'projekt0n/github-nvim-theme',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       -- Load the colorscheme here.
-      -- Like many other themes, this one has different styles, and you could load
-      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      -- vim.cmd.colorscheme 'github_dark_default'
       vim.cmd.colorscheme 'catppuccin'
 
       -- You can configure highlights by doing something like:
