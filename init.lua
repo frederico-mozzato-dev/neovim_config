@@ -159,11 +159,12 @@ require('lazy').setup({
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
-  {
-    'lukas-reineke/indent-blankline.nvim',
-    main = 'ibl',
-    opts = {},
-  },
+
+  -- { -- Indentation lines
+  --   'lukas-reineke/indent-blankline.nvim',
+  --   main = 'ibl',
+  --   opts = {},
+  -- },
 
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following Lua:
@@ -235,18 +236,6 @@ require('lazy').setup({
         ['<leader>h'] = { 'Git [H]unk' },
       }, { mode = 'v' })
     end,
-  },
-
-  { -- neotree
-    'nvim-neo-tree/neo-tree.nvim',
-    branch = 'v3.x',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'nvim-tree/nvim-web-devicons',
-      'MunifTanjim/nui.nvim',
-    },
-    vim.keymap.set('n', '<leader>\\', '<Cmd>Neotree toggle <CR>'),
-    vim.keymap.set('n', '<leader>gs', '<Cmd>Neotree git_status float<CR>'),
   },
   { -- Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope.nvim',
@@ -480,12 +469,13 @@ require('lazy').setup({
       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+
+      -- See `:help lspconfig-all` for a list of all the pre-configured LSPs
       local servers = {
         emmet_language_server = {},
         ruby_lsp = {},
         rubocop = {},
         solargraph = {},
-        -- See `:help lspconfig-all` for a list of all the pre-configured LSPs
 
         lua_ls = {
           -- cmd = {...},
@@ -780,11 +770,11 @@ require('lazy').setup({
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
   -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
-  -- require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
-  -- require 'kickstart.plugins.neo-tree',
-  -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+  require 'kickstart.plugins.indent_line',
+  require 'kickstart.plugins.lint',
+  require 'kickstart.plugins.autopairs',
+  require 'kickstart.plugins.neo-tree',
+  require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
