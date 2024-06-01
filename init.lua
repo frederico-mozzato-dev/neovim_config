@@ -160,12 +160,6 @@ require('lazy').setup({
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
-  -- { -- Indentation lines
-  --   'lukas-reineke/indent-blankline.nvim',
-  --   main = 'ibl',
-  --   opts = {},
-  -- },
-
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following Lua:
   --    require('gitsigns').setup({ ... })
@@ -706,6 +700,9 @@ require('lazy').setup({
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
+
+      -- Move lines around
+      require('mini.move').setup()
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
