@@ -151,6 +151,7 @@ require('lazy').setup({
   'catppuccin/nvim',
   'rebelot/kanagawa.nvim',
   'projekt0n/github-nvim-theme',
+  'diegoulloao/neofusion.nvim',
 
   -- Use `opts = {}` to force a plugin to be loaded.
   --
@@ -702,6 +703,7 @@ require('lazy').setup({
       require('mini.surround').setup()
 
       -- Move lines around
+      -- Select with visual mode and use ALT + hjkl to move selection
       require('mini.move').setup()
 
       -- Simple and easy statusline.
@@ -766,12 +768,12 @@ require('lazy').setup({
   --  Here are some example plugins that I've included in the Kickstart repository.
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
-  -- require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+  -- require 'kickstart.plugins.debug',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
