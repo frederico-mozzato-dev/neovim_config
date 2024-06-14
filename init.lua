@@ -104,6 +104,9 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- jj to exit insert mode
+vim.keymap.set('i', 'jj', '<Esc>', { desc = 'Exit insert mode' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -151,7 +154,7 @@ require('lazy').setup({
   'catppuccin/nvim',
   'rebelot/kanagawa.nvim',
   'projekt0n/github-nvim-theme',
-  'diegoulloao/neofusion.nvim',
+  'Mofiqul/vscode.nvim',
 
   -- Use `opts = {}` to force a plugin to be loaded.
   --
@@ -470,7 +473,6 @@ require('lazy').setup({
         emmet_language_server = {},
         ruby_lsp = {},
         rubocop = {},
-        solargraph = {},
 
         lua_ls = {
           -- cmd = {...},
