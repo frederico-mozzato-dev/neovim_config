@@ -9,7 +9,7 @@ return {
       max_height = 0,
       border = 'rounded',
       win_options = {
-        winblend = 5,
+        winblend = 0,
       },
       -- This is the config that will be passed to nvim_open_win.
       -- Change values here to customize the layout
