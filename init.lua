@@ -479,10 +479,19 @@ require('lazy').setup({
 
       -- See `:help lspconfig-all` for a list of all the pre-configured LSPs
       local servers = {
+        -- Web stuff
         emmet_language_server = {},
+        tailwindcss = {},
+
+        -- Ruby/Rails stuff
         ruby_lsp = {},
         rubocop = {},
 
+        -- Javascript stuff
+        eslint = {},
+        tsserver = {},
+
+        -- Lua stuff
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
