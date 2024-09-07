@@ -481,11 +481,14 @@ require('lazy').setup({
 
         -- Ruby/Rails stuff
         ruby_lsp = {},
-        rubocop = {},
+        rubocop = {
+          -- See: https://docs.rubocop.org/rubocop/usage/lsp.html
+          cmd = { 'bundle', 'exec', 'rubocop', '--lsp' },
+          root_dir = require('lspconfig').util.root_pattern('Gemfile', '.git', '.'),
+        },
 
         -- Javascript stuff
         eslint = {},
-        tsserver = {},
 
         -- Lua stuff
         lua_ls = {
