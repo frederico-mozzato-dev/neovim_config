@@ -59,6 +59,9 @@ vim.opt.splitbelow = true
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', lead = '·', nbsp = '␣' }
 
+-- Set tabsize to 2
+vim.opt.tabstop = 2
+
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
 
@@ -477,7 +480,6 @@ require('lazy').setup({
       local servers = {
         -- Web stuff
         emmet_language_server = {},
-        tailwindcss = {},
 
         -- Ruby/Rails stuff
         ruby_lsp = {},
@@ -489,6 +491,9 @@ require('lazy').setup({
 
         -- Javascript stuff
         eslint = {},
+
+        -- Go
+        gopls = {},
 
         -- Lua stuff
         lua_ls = {
@@ -748,7 +753,7 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'javascript', 'lua', 'luadoc', 'markdown', 'ruby', 'vim', 'vimdoc' },
+      ensure_installed = { 'bash', 'c', 'diff', 'go', 'html', 'javascript', 'lua', 'luadoc', 'markdown', 'ruby', 'vim', 'vimdoc' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
