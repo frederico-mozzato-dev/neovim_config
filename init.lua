@@ -482,10 +482,14 @@ require('lazy').setup({
         emmet_language_server = {},
 
         -- Ruby/Rails stuff
-        ruby_lsp = {},
+        ruby_lsp = {
+          -- Use asdf to ensure the correct Ruby version is used
+          cmd = { vim.fn.expand '~/.asdf/shims/ruby-lsp' },
+        },
         rubocop = {
           -- See: https://docs.rubocop.org/rubocop/usage/lsp.html
-          cmd = { 'bundle', 'exec', 'rubocop', '--lsp' },
+          -- cmd = { 'bundle', 'exec', 'rubocop', '--lsp' }, -- Use this if gems are installed locally
+          cmd = { vim.fn.expand '~/.asdf/shims/rubocop', '--lsp' },
           root_dir = require('lspconfig').util.root_pattern('Gemfile', '.git', '.'),
         },
 

@@ -1,0 +1,64 @@
+-- return {
+--   'neovim/nvim-lspconfig',
+--   ft = { 'ruby' },
+--   dependencies = {
+--     'mason.nvim',
+--   },
+--   config = function()
+--     local lspconfig = require 'lspconfig'
+--
+--     -- Setup rubocop-lsp without formatting enabled
+--     lspconfig.rubocop.setup {
+--       cmd = { 'bundle', 'exec', 'rubocop-lsp' },
+--       on_attach = function(client, bufnr)
+--         -- disable format capability by default
+--         client.server_capabilities.documentFormattingProvider = false
+--
+--         local toggle_key = '<leader>tf'
+--         local format_key = '<leader>lf'
+--
+--         -- Initialize toggle state
+--         if vim.g.rubocop_format_on_save_enabled == nil then
+--           vim.g.rubocop_format_on_save_enabled = false
+--         end
+--
+--         -- Toggle command: <leader>rf
+--         vim.keymap.set('n', toggle_key, function()
+--           vim.g.rubocop_format_on_save_enabled = not vim.g.rubocop_format_on_save_enabled
+--           if vim.g.rubocop_format_on_save_enabled then
+--             print '✅ Rubocop format on save enabled'
+--           else
+--             print '❌ Rubocop format on save disabled'
+--           end
+--         end, { buffer = bufnr, desc = 'Toggle Rubocop format on save' })
+--
+--         -- Manual format command: <leader>lf
+--         vim.keymap.set('n', format_key, function()
+--           vim.lsp.buf.format {
+--             filter = function(c)
+--               return c.name == 'rubocop'
+--             end,
+--             timeout_ms = 2000,
+--           }
+--         end, { buffer = bufnr, desc = 'Format with Rubocop LSP' })
+--
+--         -- Format on save autocmd respecting the toggle
+--         vim.api.nvim_create_autocmd('BufWritePre', {
+--           buffer = bufnr,
+--           callback = function()
+--             if vim.g.rubocop_format_on_save_enabled then
+--               vim.lsp.buf.format {
+--                 filter = function(c)
+--                   return c.name == 'rubocop'
+--                 end,
+--                 timeout_ms = 2000,
+--               }
+--             end
+--           end,
+--         })
+--       end,
+--     }
+--   end,
+-- }
+--
+return {}
